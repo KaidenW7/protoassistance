@@ -1,0 +1,65 @@
+html{
+    background-image: url(img\ 2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-attachment: fixed;
+}
+
+.first{
+    display:flex;
+    background-color:darkgrey;
+    margin: 75px 100px 50px 100px;
+    border-radius: 10px;
+
+}
+
+.imagen{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#backphoto{
+    width: 350px;
+    height: 350px;
+    border-radius: 175px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+img:hover{
+    opacity: 0.9;
+    transform: scale(1.1);
+    transition: all 0.6s ease 0s;
+}
+
+img{
+    transition: all 0.6s ease 0s;    
+}
+
+/* .andrea{
+    margin-left: 340px;
+    margin-top: 70px;
+    margin-bottom: 80px;
+} */
+
+h1{
+    font-family: 'Poppins', sans-serif;
+    color:rgb(24, 36, 36);
+}
+
+.second{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* 
+@media screen and (max-width:900px) {
+    .first{
+        background-color: aqua;
+    }
+} */
