@@ -5,14 +5,32 @@ html{
     background-position-x: center;
     background-attachment: fixed;
 }
+/*
+body{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: auto;
+    width: 100%;
+}
+*/
 
 .first{
     display:flex;
-    background-color:darkgrey;
-    margin: 75px 100px 50px 100px;
-    border-radius: 10px;
-
+    position: relative;
+    background-color: rgb(231, 231, 231);
+    margin: 150px 100px 100px 100px;
+    border-radius: 5px;
 }
+
+/*.first{
+    position: absolute;
+    background-color: darkgray;
+    border-radius: 10px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}*/
 
 .imagen{
     display: flex;
@@ -32,11 +50,11 @@ html{
 img:hover{
     opacity: 0.9;
     transform: scale(1.1);
-    transition: all 0.6s ease 0s;
+    transition: all 1s ease 0s;
 }
 
 img{
-    transition: all 0.6s ease 0s;    
+    transition: all 1s ease 0s;    
 }
 
 /* .andrea{
@@ -46,8 +64,17 @@ img{
 } */
 
 h1{
+    position: absolute;
     font-family: 'Poppins', sans-serif;
-    color:rgb(24, 36, 36);
+    color: rgb(24, 36, 36);
+    top: 55px; 
+}
+
+h4{
+    position: absolute;
+    font-family: 'Heebo', sans-serif;
+    color: rgb(24, 36, 36);
+    top: 120px;
 }
 
 .second{
@@ -55,6 +82,94 @@ h1{
     flex-direction: column;
     align-items: center;
     width: 100%;
+}
+
+#username{
+    position: absolute;
+    top: 205px;
+    width: 250px;
+    height: 30px;
+    border: 2.4px solid rgb(24, 36, 36);
+    border-radius: 3px;
+    background-color: rgb(231, 231, 231);
+    font-family: 'poppins', sans-serif;
+}
+
+#username::placeholder{
+    font-family: 'poppins', sans-serif;
+    /*font-weight: bold;*/
+    color: rgb(24, 36, 36);
+    text-align: center;
+}
+
+#username:focus::-webkit-input-placeholder{
+    opacity: 0;
+    -webkit-transition: opacity 0.35s ease-in-out;
+    transition: opacity 0.35s ease-in-out;
+}
+
+#username::placeholder{
+    transition: opacity 0.35s ease-in-out;
+}
+
+/*#username::placeholder{
+    font-family: 'poppins', sans-serif;
+    color: rgb(24, 36, 36);
+    text-align: center;
+    transition: opacity 0.35s ease-in-out;
+}
+
+#username::placeholder{  
+    transition: opacity 0.35s ease-in-out;
+}*/
+
+#username:hover{
+    opacity: 0.5;
+    transition: opacity 0.35s ease-in-out;
+}
+
+#username::placeholder{
+    transition: opacity 0.35s ease-in-out;
+}
+
+#username{
+    transition: opacity 0.35s ease-in-out;
+}
+
+#password{
+    position: absolute;
+    top: 260px;
+    width: 250px;
+    height: 30px;
+    border: 2.4px solid rgb(24, 36, 36);
+    border-radius: 3px;
+    background-color: rgb(231, 231, 231);
+    font-family: 'poppins', sans-serif;
+}
+
+#password::placeholder{
+    font-family: 'poppins', sans-serif;
+    color: rgb(24, 36, 36);
+    text-align: center;
+}
+
+#password:focus::-webkit-input-placeholder{
+    opacity: 0;
+    -webkit-transition: opacity 0.35s ease-in-out;
+    transition: opacity 0.35s ease-in-out;
+}
+
+#password:hover{
+    opacity: 0.5;
+    transition: opacity 0.35s ease-in-out;
+}
+
+#password::placeholder{
+    transition: opacity 0.35s ease-in-out;
+}
+
+#password{
+    transition: opacity 0.35s ease-in-out;
 }
 
 /* 
