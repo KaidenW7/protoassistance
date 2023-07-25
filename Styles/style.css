@@ -1,5 +1,6 @@
 html{
-    background-image: url(/Archivos_Media/img\ 2.jpg);
+    /*background-image: url(/Archivos_Media/img\ 2.jpg);*/
+    background-color: rgb(24, 36, 36);
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: center;
@@ -21,7 +22,7 @@ body{
     position: relative;
     background-color: rgb(231, 231, 231);
     margin: 100px 100px 100px 100px;
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
 /*.first{
@@ -69,6 +70,7 @@ h1{
     top: 85px;
     font-family: 'Poppins', sans-serif;
     color: rgb(24, 36, 36);
+    margin-bottom: 0px;
 }
 
 h4{
@@ -78,7 +80,7 @@ h4{
     font-weight: 100;
     color: rgb(24, 36, 36);
     margin-bottom: 20px;
-    margin-top: 0px;
+    margin-top: 10px;
 }
 
 .second{
