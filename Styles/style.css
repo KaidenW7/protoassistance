@@ -11,7 +11,7 @@ html{
 body{
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     height: 100vh;
 }
 
@@ -79,7 +79,7 @@ h4{
     font-family: 'Poppins', sans-serif;
     font-weight: 100;
     color: rgb(24, 36, 36);
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     margin-top: 10px;
 }
 
@@ -265,6 +265,8 @@ h4{
 #pw_link{
     /*position: absolute;*/
     font-family: 'poppins', sans-serif;
+    margin-bottom: 5px;
+    margin-top: 20px;
 }
 
 .links{
@@ -288,6 +290,72 @@ h4{
   
 .links:hover {
     border-bottom: 1px solid;
+}
+
+
+
+#box_row{
+    display : flex;
+    height: 60px;
+    width: 280px;
+    flex-direction : row;
+    margin-top: 30px;
+}
+
+#division_line{
+    color: rgb(24, 36, 36);
+    border-left: thick solid rgb(24, 36, 36);
+    height: 100%;
+    width: 0.5%;
+    text-align: justify;
+}
+
+#box_aligned{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 49.5%;
+}
+
+#box_aligned2{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    width: 49.5%;
+}
+
+#SM_name{
+    color: rgb(24, 36, 36);
+    font-family: 'poppins', sans-serif;
+    font-weight: 100;
+    user-select: none;
+    -webkit-user-select: none;
+    text-align: center;
+}
+
+#service_mark{
+    color: rgb(69, 82, 82);
+    font-family: 'poppins', sans-serif;
+    font-weight: 800;
+    user-select: none;
+    -webkit-user-select: none;
+    margin-right: 4px;
+}
+
+#fb{
+    margin-top: 5px;
+}
+
+#ig{
+    margin-top: 5px;
+}
+
+#wpp{
+    margin-top: 5px;
 }
 
 /*@media (min-width: 768px) {
