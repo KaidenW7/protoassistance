@@ -8,7 +8,7 @@
     <!--...Favicon Image...-->
     <link rel="shortcut icon" href="Archivos_Media/img_web.png" type="imagen/png">
     <!--...CSS Archive Link...-->
-    <link href="/Styles/style.css" rel="stylesheet" type="text/css">
+    <link href="Styles/style.css" rel="stylesheet" type="text/css">
     <!--...Google Fonts...-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
