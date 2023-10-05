@@ -8,7 +8,7 @@
     <!--...Favicon Image...-->
     <link rel="shortcut icon" href="Archivos_Media/img_web.png" type="imagen/png">
     <!--...CSS Archive Link...-->
-    <link href="/Styles/style.css" rel="stylesheet" type="text/css">
+    <link href="Styles/style.css" rel="stylesheet" type="text/css">
     <!--...Google Fonts...-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,11 +33,15 @@
         <div class="second">
             <section class="containerMenu">
                 <h1>e-Assistance</h1>
-                <h4>PLANILLA DE ASISTENCIA WEB</h4>  
-                    <form id="log_in">   
-                        <input type="text" placeholder="USUARIO" maxlength="30" id="username">
-                        <input type="password" placeholder="CONTRASEÑA" maxlength="20" id="password">
-                        <button id="log-in_button" role="button">INICIAR SESION</button>
+                <h4>PLANILLA DE ASISTENCIA WEB</h4>
+                    <?php 
+                        include "conexion.php";
+                        include "login.php";
+                    ?>  
+                    <form id="log_in" method="POST" action="">   
+                        <input type="text" placeholder="USUARIO" maxlength="30" id="username" name="usuario">
+                        <input type="password" placeholder="CONTRASEÑA" maxlength="20" id="password" name="password">
+                        <input type="submit" id="log-in_button" name="btniniciar" value="INICIAR SESIÓN">
                         <h6 id=pw_link><a href="#" class="links">¿Olvidó su contraseña?</a></h6>
                     </form>
                 <div id="box_row">
