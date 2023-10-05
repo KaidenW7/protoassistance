@@ -15,3 +15,4 @@ if (!empty($_POST["btniniciar"])) {
         echo "Los campos están vacíos.";
     }
 }
+?>
