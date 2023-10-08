@@ -8,11 +8,7 @@
         <div class="second">
             <section class="containerMenu">
                 <h1>e-Assistance</h1>
-                <h4>REGISTRO - NUEVO USUARIO</h4>
-                    <?php 
-                        //include "../conexion/conexion.php";
-                        //include "../login/login.php";
-                    ?>  
+                <h4>REGISTRO - NUEVO USUARIO</h4> 
                     <form id="log_in" method="POST" action=""> 
                         <input type="text" placeholder="NOMBRE COMPLETO" maxlength="200" id="username" name="nombre">  
                         <input type="text" placeholder="EMAIL" maxlength="100" id="username" name="email">
@@ -29,7 +25,6 @@
                             $hash_clave = password_hash($clave, PASSWORD_DEFAULT);
                             $f_registro = date('Y-m-d H:i:s');
                             require_once('conexion.php'); 
-                            $conexion = new mysqli("localhost", "root", "", "e-assistance", "3306");
                             mysqli_report(MYSQLI_REPORT_ERROR);
                             $sql = 'INSERT INTO usuarios (n_completo, rol, email, clave, f_registro) VALUES (?,?,?,?,?)'; 
                             $stmt = $conexion->prepare($sql); 

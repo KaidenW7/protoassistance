@@ -7,7 +7,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["btniniciar"])) {
         $password = $_POST["password"];
 
         require_once('conexion.php');
-        $conexion = new mysqli("localhost", "root", "", "e-assistance", "3306");
         // Realizar la consulta SQL de forma segura para evitar inyecciones SQL
         $stmt = $conexion->prepare("SELECT * FROM usuarios WHERE email = ?");
         $stmt->bind_param("s", $email);

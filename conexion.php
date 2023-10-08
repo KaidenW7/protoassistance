@@ -1,6 +1,7 @@
 <?php
-$connexion = new mysqli("localhost", "root", "", "e-assistance", "3306");
-$connexion->set_charset("utf8");
+$conexion = new mysqli("localhost", "root", "", "e-assistance", "3306");
+$conexion->set_charset("utf8");
+
 
 ?>
 
