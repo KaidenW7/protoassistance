@@ -16,7 +16,7 @@
     <h4 class="text-center text-secondary">Asistencia 11°</h4>
 
     <?php 
-        include "../conexion.php";
+        include "../modelo/conexion.php";
         $sql=$conexion->query("SELECT foto, nombre, apellido FROM estudiantes_11");
     ?>
 

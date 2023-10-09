@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<?php require "head.php"; ?>
+<?php require "modelo/head.php"; ?>
 
 <body>
     <div class="first">
@@ -12,8 +12,8 @@
                 <h1>e-Assistance</h1>
                 <h4>PLANILLA DE ASISTENCIA WEB</h4>
                     <?php 
-                        include "conexion.php";
-                        include "login.php";
+                        include "modelo/conexion.php";
+                        include "controlador/login.php";
                     ?>  
                     <form id="log_in" method="POST" action="login.php">   
                         <input type="text" placeholder="USUARIO" maxlength="30" id="username" name="email">
