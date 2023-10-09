@@ -17,7 +17,7 @@
 
     <?php 
         include "../conexion.php";
-        $sql=$conexion->query("SELECT id, foto, nombre, apellido FROM estudiantes_11");
+        $sql=$conexion->query("SELECT foto, nombre, apellido FROM estudiantes_11");
     ?>
 
     <table class="table">
