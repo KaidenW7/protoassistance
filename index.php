@@ -15,7 +15,7 @@
                         include "modelo/conexion.php";
                         include "controlador/login.php";
                     ?>  
-                    <form id="log_in" method="POST" action="login.php">   
+                    <form id="log_in" method="POST" action="controlador/login.php">   
                         <input type="text" placeholder="USUARIO" maxlength="30" id="username" name="email">
                         <input type="password" placeholder="CONTRASEÑA" maxlength="20" id="password" name="password">
                         <input type="submit" id="log-in_button" name="btniniciar" value="INICIAR SESIÓN">

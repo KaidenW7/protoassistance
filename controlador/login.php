@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["btniniciar"])) {
         $email = $_POST["email"];
         $password = $_POST["password"];
 
-        require_once('conexion.php');
+        require_once('../modelo/conexion.php');
         // Realizar la consulta SQL de forma segura para evitar inyecciones SQL
         $stmt = $conexion->prepare("SELECT * FROM usuarios WHERE email = ?");
         $stmt->bind_param("s", $email);
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["btniniciar"])) {
 
             if ($verificado) {
                 // Usuario autenticado correctamente, redirigir a la página de inicio
-                header("Location: inicio.php");
+                header("Location: ../vista/inicio.php");
                 exit(); // Asegúrate de terminar el script después de redirigir
             } else {
                 echo "La contraseña no coincide.";
