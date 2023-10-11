@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Verificar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["btniniciar"])) {
     // Verificar si se han enviado ambos campos
@@ -23,6 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["btniniciar"])) {
 
             if ($verificado) {
                 // Usuario autenticado correctamente, redirigir a la página de inicio
+                //$_SESSION['id_usuario'] = $row->id_usuario;
+                //$_SESSION['email'] = $row->email;
                 header("Location: ../vista/inicio.php");
                 exit(); // Asegúrate de terminar el script después de redirigir
             } else {
