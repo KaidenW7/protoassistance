@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["btniniciar"])) {
         // Obtener el resultado de la consulta
         $result = $stmt->get_result();
 
+        
         // Verificar si se encontró un usuario
         if ($result->num_rows === 1) {
             // Verificar que el hash de la contraseña coincida con la contraseña ingresada por el usuario
@@ -24,8 +25,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["btniniciar"])) {
 
             if ($verificado) {
                 // Usuario autenticado correctamente, redirigir a la página de inicio
-                //$_SESSION['id_usuario'] = $row->id_usuario;
-                //$_SESSION['email'] = $row->email;
                 header("Location: ../vista/inicio.php");
                 exit(); // Asegúrate de terminar el script después de redirigir
             } else {

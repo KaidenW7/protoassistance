@@ -1,16 +1,16 @@
 <?php
- //Inicia la sesión para acceder a las variables de sesión
-session_start();
+    //Inicia la sesión para acceder a las variables de sesión
+    session_start();
 
- //Verifica si el usuario está autenticado
-if (empty($_SESSION['email']) and empty($_SESSION['id_usuario'])) {
-     //Si no está autenticado, redirige al usuario al inicio de sesión
- //   header("Location: ../index.php");
-    
-}
+    //Verifica si el usuario está autenticado
+    if (!isset($_SESSION['id_usuario'])) {
+        //Si no está autenticado, redirige al usuario al inicio de sesión
+        header("Location: ../index.php");
+        
+    }
 
- //Obtén el ID del usuario desde la variable de sesión
-$user_id = $_SESSION['id_usuario'];
+    //Obtén el ID del usuario desde la variable de sesión
+    $user_id = $_SESSION['id_usuario'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,11 +36,13 @@ $user_id = $_SESSION['id_usuario'];
         <?php 
         
         include "../modelo/conexion.php";
-        $sql = "SELECT * FROM cursos  
-        INNER JOIN usuario_cursos ON cursos.id_curso = usuario_cursos.id_curso
-        WHERE usuario_cursos.id_usuario = ?";
+        echo "Este es el ID del usuario: ".$user_id;
+        $sql = "SELECT * 
+        FROM cursos
+        INNER JOIN usuario_curso ON cursos.id_curso = usuario_curso.id_curso
+        WHERE usuario_curso.id_usuario = ?";
         $stmt = $conexion->prepare($sql);
-        $stmt->bind_param("i", $user_id);  // "i" indica que es un parámetro de tipo entero
+        $stmt->bind_param("i", $user_id); 
         $stmt->execute();
         $resultado = $stmt->get_result();
 

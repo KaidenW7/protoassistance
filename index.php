@@ -1,9 +1,12 @@
+<?php 
+    /*if (isset($_POST["btniniciar"])){
+        session_start();
+        $_SESSION["email"] = htmlentities($_POST["email"]);
+
+    }*/
+?>
 <!DOCTYPE html>
-
-<?php
-session_start(); 
-require "modelo/head.php"; ?>
-
+<?php require "modelo/head.php"; ?>
 <body>
     <div class="first">
         <div class="imagen">
@@ -14,7 +17,7 @@ require "modelo/head.php"; ?>
                 <h1>e-Assistance</h1>
                 <h4>PLANILLA DE ASISTENCIA WEB</h4>
                     <?php 
-                        include "modelo/conexion.php";
+                        //include "modelo/conexion.php";
                         //include "controlador/login.php";
                     ?>  
                     <form id="log_in" method="POST" action="controlador/login.php">   
