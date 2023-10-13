@@ -1,7 +1,7 @@
 
 <?php require('../modelo/head1.php'); ?>
 
-<nav class="sidebar" style="background-color: rgb(24, 36, 36); height: 100vh;">
+<nav class="sidebar" style="background-color: rgb(24, 36, 36);">
     <div class="custom-menu">
         <button type="button" id="sidebarCollapse" class="btn btn-primary">
         <i class="fa fa-bars"></i>

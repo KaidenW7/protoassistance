@@ -24,7 +24,7 @@
             <thead>
                 <tr>
                     <th scope="col">N°</th>
-                    <th></th>
+                    <th scope="col">Foto</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
                 </tr>
@@ -36,7 +36,7 @@
                     ?>
                 <tr>
                     <th><?php echo $i;?></th>
-                    <td><img src="<?php echo $datos->foto; ?>" alt="Imagen"></td>
+                    <td><img src="<?php echo $datos->foto; ?>" alt="Imagen" width="50" height="70"></td>
                     <td><?= $datos->nombre?></td>
                     <td><?= $datos->apellido?></td>
                 </tr>

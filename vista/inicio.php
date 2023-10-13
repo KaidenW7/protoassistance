@@ -36,7 +36,7 @@
         <?php 
         
         include "../modelo/conexion.php";
-        echo "Este es el ID del usuario: ".$user_id;
+        //echo "Este es el ID del usuario: ".$user_id;
         $sql = "SELECT * 
         FROM cursos
         INNER JOIN usuario_curso ON cursos.id_curso = usuario_curso.id_curso
@@ -49,17 +49,17 @@
         if ($resultado->num_rows > 0) {
             // Mostrar cada tarjeta para los cursos asociados al docente
             while ($fila = $resultado->fetch_assoc()) {
-                $nombre_curso = $fila['nombre_curso'];
-                $id_curso = $fila['id_curso'];
-                // Ahora puedes usar $nombre_curso y $id_curso para llenar la tarjeta
+                $grado_curso = $fila['grado'];
+                $letra = $fila['l_curso'];
+                // Ahora puedes usar $grado y $l_curso para llenar la tarjeta
                 // Coloca aquí la estructura de la tarjeta usando los datos obtenidos
                 echo '
-                <div class="col-sm-12 col-md-9 col-lg-9 col-xl-9">
+                <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
                     <div class="card my-3" style="width: 18rem;">
-                        <img src="../Archivos_Media/'.$id_curso.'.png" class="card-img-top" alt="...">
+                        <img src="../Archivos_Media/'.$grado_curso.''.$letra.'.png" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Grado '.$nombre_curso.'</h5>
-                            <p class="card-text">Lista de asistencia de los estudiantes de grado '.$nombre_curso.'.</p>
+                            <h5 class="card-title">Grado '.$grado_curso.'°'.$letra.'</h5>
+                            <p class="card-text">Lista de asistencia de los estudiantes de grado '.$grado_curso.'°'.$letra.'.</p>
                             <a href="#" class="btn btn-primary">Abrir lista.</a>
                         </div>
                     </div>
