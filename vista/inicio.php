@@ -51,6 +51,9 @@
             while ($fila = $resultado->fetch_assoc()) {
                 $grado_curso = $fila['grado'];
                 $letra = $fila['l_curso'];
+
+                // Genera un enlace único para cada curso usando el ID del curso como parámetro GET
+                $enlace_lista = "lista.php?grado=" . $grado_curso . "&letra=" . $letra;;
                 // Ahora puedes usar $grado y $l_curso para llenar la tarjeta
                 // Coloca aquí la estructura de la tarjeta usando los datos obtenidos
                 echo '
@@ -60,7 +63,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Grado '.$grado_curso.'°'.$letra.'</h5>
                             <p class="card-text">Lista de asistencia de los estudiantes de grado '.$grado_curso.'°'.$letra.'.</p>
-                            <a href="#" class="btn btn-primary">Abrir lista.</a>
+                            <a href="' . $enlace_lista . '" class="btn btn-primary">Abrir lista.</a>
                         </div>
                     </div>
                 </div>';
