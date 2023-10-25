@@ -2,22 +2,14 @@
 <?php include "../modelo/head1.php"; ?>
 <body>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-  <a class="navbar-brand ms-3" href="#"><img src="../Archivos_Media/img_web1.png" alt="" srcset=""></a>
+  <a class="navbar-brand ms-3" href="inicio.php"><img src="../Archivos_Media/img_web1.png" alt="" srcset=""></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav ms-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="../controlador/cerrar_sesion.php">Cerrar <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="">Cerrar Sesion</a>
-        </div>
+        <a class="cierre" href="../controlador/cerrar_sesion.php">Cerrar <i class="fa-solid fa-right-from-bracket"></i><span class="sr-only">(current)</span></a>
       </li>
     </ul>
   </div>

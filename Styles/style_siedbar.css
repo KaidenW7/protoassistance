@@ -1,0 +1,31 @@
+.eti_a{
+    color: aliceblue;
+    text-decoration: none;
+    /*font-family: sans-serif;  Reemplaza 'TuFuente' con la fuente que desees */
+    font-size: 24px; /* Ajusta el tamaño del texto según tus preferencias */
+    
+}
+
+.cierre{
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 24px; /* Ajusta el tamaño del texto según tus preferencias */
+    margin-right: 5px;
+}
+
+.space_ul{
+    margin-top: 30px;
+}
+
+.space{
+    margin-bottom: 17px;
+}
+
+.space:hover{
+   background-color: rgb(18, 64, 76);
+   color: black !important;
+}
+
+.eti_a:hover{
+    color: black !important;
+ }

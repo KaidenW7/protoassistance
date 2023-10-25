@@ -22,11 +22,12 @@
                 // Ahora, $id_curso contiene el ID del curso que pasaste desde la página anterior
                 // Puedes usar este ID para realizar consultas SQL y mostrar la lista de asistencia correspondiente
                 ?>
-                <h4 class="text-center">Asistencia <?php echo $curso; ?></h4>
-
+                <div class="contenedor">
+                    <h4 class="text-center">Asistencia <?php echo $curso; ?></h4> 
+                    <?php echo "Fecha: ".date('d-m-Y'); ?></div>
                 <?php 
                     include "../modelo/conexion.php";
-                    $sql=$conexion->query("SELECT foto, nombre, apellido FROM estudiantes_11 WHERE curso='$curso'");
+                    $sql=$conexion->query("SELECT foto, nombre, apellido FROM estudiantes_11 WHERE curso='$curso' ORDER BY apellido ASC");
                 ?>
 
                 <form method="post" action="">
@@ -66,7 +67,7 @@
                 </tbody>
                 </table>
                 <button type="submit" class="btn btn-primary">Guardar Asistencia</button>
-                </form>         
+                </form> 
             <?php
             }
             if (isset($_POST['asistencia'])) {
@@ -83,7 +84,12 @@
                 }
             }
             ?>
-            
+            <div class="text-center mt-4">
+                Presente: <i class="fa-regular fa-circle-check"></i> |
+                Ausente: <i class="fa-regular fa-circle-xmark"></i> |
+                Incapacitado: <i class="fa-solid fa-user-slash"></i>
+            </div>
+                
         </div>
         
     </div>

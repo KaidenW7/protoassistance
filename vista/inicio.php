@@ -40,7 +40,7 @@
         $sql = "SELECT * 
         FROM cursos
         INNER JOIN usuario_curso ON cursos.id_curso = usuario_curso.id_curso
-        WHERE usuario_curso.id_usuario = ?";
+        WHERE usuario_curso.id_usuario = ? ORDER BY l_curso ASC";
         $stmt = $conexion->prepare($sql);
         $stmt->bind_param("i", $user_id); 
         $stmt->execute();
@@ -51,6 +51,7 @@
             while ($fila = $resultado->fetch_assoc()) {
                 $grado_curso = $fila['grado'];
                 $letra = $fila['l_curso'];
+                $l_mayus = strtoupper($letra);
 
                 // Genera un enlace único para cada curso usando el ID del curso como parámetro GET
                 $enlace_lista = "lista.php?grado=" . $grado_curso . "&letra=" . $letra;;
@@ -61,8 +62,8 @@
                     <div class="card my-3" style="width: 18rem;">
                         <img src="../Archivos_Media/'.$grado_curso.''.$letra.'.png" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Grado '.$grado_curso.'°'.$letra.'</h5>
-                            <p class="card-text">Lista de asistencia de los estudiantes de grado '.$grado_curso.'°'.$letra.'.</p>
+                            <h5 class="card-title">Grado '.$grado_curso.'°'.$l_mayus.'</h5>
+                            <p class="card-text">Lista de asistencia de los estudiantes de grado '.$grado_curso.'°'.$l_mayus.'.</p>
                             <a href="' . $enlace_lista . '" class="btn btn-primary">Abrir lista.</a>
                         </div>
                     </div>

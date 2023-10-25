@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <!--...CSS Archive Link...-->
+    <link href="../Styles/style_siedbar.css" rel="stylesheet" type="text/css">
+
     <!--...Favicon Image...-->
     <link rel="shortcut icon" href="../Archivos_Media/img_web.png" type="imagen/png">
 
