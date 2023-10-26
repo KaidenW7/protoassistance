@@ -24,7 +24,11 @@
                 ?>
                 <div class="contenedor">
                     <h4 class="text-center">Asistencia <?php echo $curso; ?></h4> 
-                    <?php echo "Fecha: ".date('d-m-Y'); ?></div>
+                    <?php 
+                    include "../modelo/formato_fecha.php";
+                    echo fecha();
+                    ?>
+                </div>
                 <?php 
                     include "../modelo/conexion.php";
                     $sql=$conexion->query("SELECT foto, nombre, apellido FROM estudiantes_11 WHERE curso='$curso' ORDER BY apellido ASC");
@@ -59,6 +63,7 @@
                             <label for="incapacitado<?= $i ?>"><i class="fa-solid fa-user-slash"></i></label>
                             <input type="radio" name="asistencia[<?= $i ?>]" value="2" id="incapacitado<?= $i ?>">
                         </td>
+                        <td><button type="button" id="BotonModificar" class="btn btn-success" data-target="#editar">Modificar</button></td>
                     </tr>
                     <?php 
                         $i++;
@@ -82,7 +87,18 @@
                     $sql = "INSERT INTO asistencia (id_estudiante, estado, hora, fecha) VALUES ($id, '$valor', '$fecha', '$hora');";
                     $conexion->query($sql);
                 }
+                ?>
+                <script>
+                    Swal.fire(
+                    '¡Excelente!',
+                    'La asistencia se guardó correctamente.',
+                    'success'
+                    )
+                </script>
+            <?php
             }
+
+            include "../controlador/editar_datos_estudiantes.php";
             ?>
             <div class="text-center mt-4">
                 Presente: <i class="fa-regular fa-circle-check"></i> |
