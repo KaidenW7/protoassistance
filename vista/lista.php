@@ -63,7 +63,10 @@
                             <label for="incapacitado<?= $i ?>"><i class="fa-solid fa-user-slash"></i></label>
                             <input type="radio" name="asistencia[<?= $i ?>]" value="2" id="incapacitado<?= $i ?>">
                         </td>
-                        <td><button type="button" id="BotonModificar" class="btn btn-success" data-target="#editar">Modificar</button></td>
+                        <td>
+                            <!--<button type="button" id="BotonModificar" class="btn btn-success" data-target="#editar">Modificar</button>-->
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editar">Modificar</button>
+                        </td>
                     </tr>
                     <?php 
                         $i++;
@@ -94,6 +97,11 @@
                     'La asistencia se guardó correctamente.',
                     'success'
                     )
+                </script>
+                <script>
+                    if(window.history.replaceState){
+                        window.history.replaceState(null,null,window.location.href)
+                    }
                 </script>
             <?php
             }

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>e-Assistance</title>
     <!--...Favicon Image...-->
-    <link rel="shortcut icon" href="../Archivos_Media/version_2" type="imagen/png">
+    <link rel="shortcut icon" href="../Archivos_Media/img_web.png" type="imagen/png">
     <!--...CSS Archive Link...-->
     <link href="Styles/style1.css" rel="stylesheet" type="text/css">
     <!--...Google Fonts...-->
