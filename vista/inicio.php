@@ -54,7 +54,7 @@
                 $l_mayus = strtoupper($letra);
 
                 // Genera un enlace único para cada curso usando el ID del curso como parámetro GET
-                $enlace_lista = "lista.php?grado=" . $grado_curso . "&letra=" . $letra;;
+                $enlace_lista = "lista.php?grado=" . $grado_curso . "&letra=" . $letra;
                 // Ahora puedes usar $grado y $l_curso para llenar la tarjeta
                 // Coloca aquí la estructura de la tarjeta usando los datos obtenidos
                 echo '

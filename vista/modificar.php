@@ -34,7 +34,7 @@
                 // Puedes usar este ID para realizar consultas SQL y mostrar la lista de asistencia correspondiente
                 ?>
                 <div class="contenedor">
-                    <h4 class="text-center">Asistencia <?php echo $curso; ?></h4> 
+                    <h4 class="text-center">Modificar datos de <?php echo $curso; ?></h4> 
                     <?php 
                     include "../modelo/formato_fecha.php";
                     echo fecha();
@@ -49,7 +49,6 @@
                     $stmt->close();
                 ?>
 
-                <form method="post" action="">
                 <table class="table">
                 <thead>
                     <tr>
@@ -57,13 +56,7 @@
                         <th scope="col" class="text-center align-middle">Foto</th>
                         <th scope="col" class="text-center align-middle">Nombre</th>
                         <th scope="col" class="text-center align-middle">Apellido</th>
-                        <th scope="col" class="text-center align-middle">Asistencia</th>
-                        <th scope="col" class="text-center align-middle">
-                        <?php
-                            $enlace_lista = "modificar.php?grado=" . $grado . "&letra=" . $letra;
-                            echo '<a class="btn btn-success" href="' . $enlace_lista . '">Modificar</a>';
-                        ?>
-                        </th>
+                        <th scope="col" class="text-center align-middle">Modificar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -77,12 +70,11 @@
                         <td class="text-center align-middle"><?= $datos->nombre?></td>
                         <td class="text-center align-middle"><?= $datos->apellido?></td>
                         <td class="text-center align-middle">
-                            <label for="presente<?= $i ?>"><i class="fa-regular fa-circle-check"></i></label>
-                            <input type="radio" name="asistencia[<?= $i ?>]" value="1" id="presente<?= $i ?>" checked>
-                            <label for="ausente<?= $i ?>"><i class="fa-regular fa-circle-xmark"></i></label>
-                            <input type="radio" name="asistencia[<?= $i ?>]" value="0" id="ausente<?= $i ?>">
-                            <label for="incapacitado<?= $i ?>"><i class="fa-solid fa-user-slash"></i></label>
-                            <input type="radio" name="asistencia[<?= $i ?>]" value="2" id="incapacitado<?= $i ?>">
+                            <!--<button type="button" id="BotonModificar" class="btn btn-success" data-target="#editar">Modificar</button>-->
+                            <form action="../controlador/editar_datos_estudiantes.php" method="$_POST">
+                                <input type="hidden" value="<?= $datos->id_est_11?>">
+                                <button name="boton" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editar"><i class="fa-solid fa-pen-to-square"></i></button>
+                            </form>
                         </td>
                     </tr>
                     <?php 
@@ -91,39 +83,14 @@
                     ?>
                 </tbody>
                 </table>
-                <button type="submit" class="btn btn-primary">Guardar Asistencia</button>
-                </form> <br>
             <?php
             }
-            if (isset($_POST['asistencia'])) {
-                $datos = $_POST['asistencia'];
-                // Convertir la cadena de caracteres en un array
-                //$datos = explode(",", $datos);
-
-                foreach ($datos as $id => $valor) {
-                    $fecha = date("Y-m-d");
-                    $hora = date("H:i:s");
-            
-                    $sql = "INSERT INTO asistencia (id_estudiante, estado, hora, fecha) VALUES ($id, '$valor', '$fecha', '$hora');";
-                    $conexion->query($sql);
-                }
                 ?>
-                <script>
-                    Swal.fire(
-                    '¡Excelente!',
-                    'La asistencia se guardó correctamente.',
-                    'success'
-                    )
-                </script>
                 <script>
                     if(window.history.replaceState){
                         window.history.replaceState(null,null,window.location.href)
                     }
                 </script>
-            <?php
-            }
-               include "../modelo/indicacion.php";
-            ?>
             <?php
                include "../controlador/editar_datos_estudiantes.php";
             ?>
