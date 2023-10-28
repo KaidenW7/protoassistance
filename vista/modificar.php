@@ -71,18 +71,68 @@
                         <td class="text-center align-middle"><?= $datos->apellido?></td>
                         <td class="text-center align-middle">
                             <!--<button type="button" id="BotonModificar" class="btn btn-success" data-target="#editar">Modificar</button>-->
-                            <form action="../controlador/editar_datos_estudiantes.php" method="$_POST">
-                                <input type="hidden" value="<?= $datos->id_est_11?>">
-                                <button name="boton" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editar"><i class="fa-solid fa-pen-to-square"></i></button>
-                            </form>
+                            <!--<form method="post" action="">-->
+                                <button name="boton" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editar<?php echo $datos->id_est_11; ?>"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <!--</form>-->
                         </td>
                     </tr>
+
+                        <!-- modificar -->
+                            <div class="modal fade" id="editar<?php echo $datos->id_est_11; ?>" tabindex="-1" role="dialog" data-bs-backdrop="static">
+                            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+                                <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Editar datos del estudiante:</h5>
+                                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                
+                                <div class="modal-body" >
+                                    <form action="../controlador/editar_datos_estudiantes.php" method="post">
+                                    <input type="hidden" id="Id" name="id" value="<?= $datos->id_est_11?>">
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="foto">Foto</label>
+                                            <input type="file" name="foto" accept="image/*">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                        <label>Nombres: </label>
+                                        <input type="text" id="Titulo" name="nombre" class="form-control" value="<?= $datos->nombre?>">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                        <label>Apellido</label>
+                                        <input type="text" id="Titulo" name="apellido" class="form-control" value="<?= $datos->apellido?>">
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary mt-2">Guardar</button>
+                                    </form>
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button> 
+                                    
+                                </div>
+                    </div>
+                </div>
+            </div>
+
                     <?php 
                         $i++;
                     }
                     ?>
                 </tbody>
                 </table>
+                
+                
+
             <?php
             }
                 ?>
@@ -91,10 +141,6 @@
                         window.history.replaceState(null,null,window.location.href)
                     }
                 </script>
-            <?php
-               include "../controlador/editar_datos_estudiantes.php";
-            ?>
-                
         </div>
         
     </div>

@@ -12,7 +12,7 @@
                 <a class="eti_a" href="inicio.php"><span class="fa fa-home mr-3"></span> Home</a>
             </li>
             <li class="space">
-                <a class="eti_a" href="#"><span class="fa fa-user mr-3"></span> About</a>
+                <a class="eti_a" href="Prueba.php"><span class="fa fa-user mr-3"></span> About</a>
             </li>
             <li class="space">
                 <a class="eti_a" href="#"><span class="fa fa-briefcase mr-3"></span> Works</a>
