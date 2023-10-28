@@ -88,13 +88,14 @@
                                 </div>
                                 
                                 <div class="modal-body" >
-                                    <form action="../controlador/editar_datos_estudiantes.php" method="post">
+                                    <form action="../controlador/editar_datos_estudiantes.php" method="post" enctype ="multipart/form-data">
                                     <input type="hidden" id="Id" name="id" value="<?= $datos->id_est_11?>">
 
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
                                             <label for="foto">Foto</label>
-                                            <input type="file" name="foto" accept="image/*">
+                                            <input type="file" name="foto" value="<?= $datos->foto?>" accept="image/*">
+                                            <img src="<?php echo $datos->foto; ?>" alt="Imagen" width="50" height="70">
                                         </div>
                                     </div>
 

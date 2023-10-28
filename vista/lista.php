@@ -2,6 +2,11 @@
     //Inicia la sesión para acceder a las variables de sesión
     session_start();
 
+    if (isset($_GET['alerta']) && $_GET['alerta'] === 'exito') {
+        // Muestra un mensaje de alerta
+        echo '<script>alert("La operación se realizó con éxito.");</script>';
+    }
+
     //Verifica si el usuario está autenticado
     if (!isset($_SESSION['id_usuario'])) {
         //Si no está autenticado, redirige al usuario al inicio de sesión
@@ -61,6 +66,7 @@
                         <th scope="col" class="text-center align-middle">
                         <?php
                             $enlace_lista = "modificar.php?grado=" . $grado . "&letra=" . $letra;
+                            $_SESSION['ruta_lista'] = $enlace_lista;
                             echo '<a class="btn btn-success" href="' . $enlace_lista . '">Modificar</a>';
                         ?>
                         </th>
@@ -115,6 +121,15 @@
                     'success'
                     )
                 </script>
+                
+                <?php
+
+                /*if (isset($_GET['alerta']) && $_GET['alerta'] === 'exito') {
+                    // Muestra un mensaje de alerta
+                    echo '<script>alert("La operación se realizó con éxito.");</script>';
+                }*/
+                ?>
+
                 <script>
                     if(window.history.replaceState){
                         window.history.replaceState(null,null,window.location.href)
