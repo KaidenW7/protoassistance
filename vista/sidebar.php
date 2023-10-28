@@ -1,7 +1,7 @@
 
-<?php require('../modelo/head1.php'); ?>
+<?php //require('../modelo/head1.php'); ?>
 
-<nav class="sidebar bg-dark" style="background-color: rgb(24, 36, 36); position: fixed; top: 0; left: 0; height: 100vh; width: 350px;">
+<nav class="sidebar bg-dark" >
     
     <div class="p-4">
         <div class="text-center">

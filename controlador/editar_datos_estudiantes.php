@@ -1,5 +1,13 @@
 <?php
-session_start();
+//Inicia la sesión para acceder a las variables de sesión
+/*session_start();
+
+//Verifica si el usuario está autenticado
+if (!isset($_SESSION['id_usuario'])) {
+    //Si no está autenticado, redirige al usuario al inicio de sesión
+    header("Location: ../index.php");
+    
+}*/
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   require_once('../modelo/conexion.php');
@@ -41,14 +49,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   // Ejecutar la consulta SQL
   if ($stmt_update->execute()) {
-      $ruta = $_SESSION['ruta_lista'];
+      $ruta = $_POST['ruta'];
+      /*$ruta = $_COOKIE['ruta_lista'];
+      
       if (strpos($ruta, '?') === false) {
         // Si no hay otros parámetros, agrega el primero con un signo de interrogación
         $ruta .= '?alerta=exito';
     } else {
         // Si ya hay otros parámetros, agrega uno nuevo con un signo de ampersand
         $ruta .= '&alerta=exito';
-    }
+    }*/
     
     header("Location: ../vista/$ruta");
     exit;

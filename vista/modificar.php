@@ -8,6 +8,7 @@
         header("Location: ../index.php");
         
     }
+    $ruta= $_SESSION['ruta_lista'];
 ?>
 <!DOCTYPE html>
 <?php include "../modelo/head1.php"; ?>
@@ -90,6 +91,7 @@
                                 <div class="modal-body" >
                                     <form action="../controlador/editar_datos_estudiantes.php" method="post" enctype ="multipart/form-data">
                                     <input type="hidden" id="Id" name="id" value="<?= $datos->id_est_11?>">
+                                    <input type="hidden" id="ruta" name="ruta" value="<?= $ruta?>">
 
                                     <div class="form-row">
                                         <div class="form-group col-md-12">

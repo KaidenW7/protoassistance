@@ -66,7 +66,8 @@
                         <th scope="col" class="text-center align-middle">
                         <?php
                             $enlace_lista = "modificar.php?grado=" . $grado . "&letra=" . $letra;
-                            $_SESSION['ruta_lista'] = $enlace_lista;
+                            //$_SESSION['ruta_lista'] = $enlace_lista;
+                            //setcookie("ruta_lista", "lista.php", time() + 3600);
                             echo '<a class="btn btn-success" href="' . $enlace_lista . '">Modificar</a>';
                         ?>
                         </th>
