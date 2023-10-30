@@ -49,14 +49,14 @@
                 <thead>
                     <tr>
                         <th scope="col" class="text-center align-middle">N°</th>
-                        <th scope="col" class="text-center align-middle">Nombre</th>
+                        <th scope="col" class="text-center align-middle">Nombre Completo</th>
                         <th scope="col" class="text-center align-middle">Cursos Asignados</th>
-                        <th scope="col" class="text-center align-middle">Añadir curso</th>
+                        <th scope="col" class="text-center align-middle">Añadir/Elimira</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php
-                $i = 1;
+                $j = 1;
                 $usuarios = []; // Un array para almacenar los datos de los usuarios y sus cursos asignados.
 
                 while ($datos = $result->fetch_object()) {
@@ -70,6 +70,7 @@
                     } else {
                         // Si es un nuevo usuario, crea una entrada en el array.
                         $usuarios[$id_usuario] = [
+                            'id_usuario' => $id_usuario,
                             'nombre' => $nombre_usuario,
                             'cursos' => [$nombre_curso],
                         ];
@@ -81,75 +82,200 @@
                     <tbody>
                         <?php foreach ($usuarios as $usuario) : ?>
                             <tr>
-                                <th class="text-center align-middle"><?= $i; ?></th>
+                                <th class="text-center align-middle"><?= $j;?></th>
                                 <td class="text-center align-middle"><?= $usuario['nombre']; ?></td>
                                 <td class="text-center align-middle"><?= implode(' - ', $usuario['cursos']); ?></td>
                                 <td class="text-center align-middle">
-                                    <form action="" method="post">
-                                        <input type="hidden" name="id_usuario" value="<?= $id_usuario; ?>">
-                                        <button type="submit" name="habilitar" value="habilitar" class="btn btn-success"><i class="fa-solid fa-square-check"></i></button>
-                                        <button type="submit" name="denegar" value="denegar" class="btn btn-danger"><i class="fa-solid fa-rectangle-xmark"></i></button>
-                                    </form>
+                                        <button type="button" name="agregar" value="agregar" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregar<?php echo $usuario['id_usuario']; ?>"><i class="fa-solid fa-square-plus"></i></button>
+                                        <button type="button" name="eliminar" value="eliminar" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar<?php echo $usuario['id_usuario']; ?>"><i class="fa-solid fa-rectangle-xmark"></i></button>
                                 </td>
                             </tr>
-                            <?php $i++; ?>
-                        <?php endforeach; ?>
+                            <?php $j++; ?>
+                        <?php 
+                        ?>
+                        <!-- Agregar curso -->
+                        <div class="modal fade" id="agregar<?php echo $usuario['id_usuario']; ?>" tabindex="-1" role="dialog" data-bs-backdrop="static">
+                            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+                                <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Añadir cursos:</h5>
+                                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                
+                                <div class="modal-body" >
+                                    <form action="../controlador/asignar_eliminar_curso.php" method="post">
+                                    <input type="hidden" id="Id" name="id" value="<?= $usuario['id_usuario']; ?>">
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="cursos">Seleccione los cursos.<br> Sontenga la tecla control para seleccionar*</label>
+                                            <select class="form-select mt-2" size="6" name="opciones[]" multiple>
+                                                <?php
+                                                    for ($i = 6; $i <= 11; $i++) {
+                                                        echo "<option value='$i-a'>$i A</option>";
+                                                        echo "<option value='$i-b'>$i B</option>";
+                                                        echo "<option value='$i-c'>$i C</option>";
+                                                    }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <button type="submit" name="agregar" class="btn btn-primary mt-2">Agregar</button>
+                                    </form>
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button> 
+                                    
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Eliminar cursos -->
+                            <div class="modal fade" id="eliminar<?php echo $usuario['id_usuario']; ?>" tabindex="-1" role="dialog" data-bs-backdrop="static">
+                            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+                                <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Eliminar cursos:</h5>
+                                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                
+                                <div class="modal-body" >
+                                    <form action="../controlador/asignar_eliminar_curso.php" method="post">
+                                    <input type="hidden" id="Id" name="id" value="<?= $usuario['id_usuario']; ?>">
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="foto">Seleccione los cursos.<br> Sontenga la tecla control para seleccionar*</label>
+                                            <select class="form-select mt-2" size="6" name="opciones2[]" multiple>
+                                                <?php
+                                                    for ($i = 6; $i <= 11; $i++) {
+                                                        echo "<option value='$i-a'>$i A</option>";
+                                                        echo "<option value='$i-b'>$i B</option>";
+                                                        echo "<option value='$i-c'>$i C</option>";
+                                                    }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <button type="submit" name="agregar" class="btn btn-primary mt-2">Eliminar</button>
+                                    </form>
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button> 
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                        endforeach; ?>
                     </tbody>
                 </table>
+                
 
+                <!--En la siguiente tabla se muestran los usuarios sin cursos y la función añadirle-->
 
-                <?php
+                <div class="contenedor  mt-5">
+                    <h4 class="text-center">Usuarios pendientes por asignar cursos.</h4> 
+                </div>
 
-                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                        require_once('../modelo/conexion.php');
-
-                        if (isset($_POST['habilitar'])) {
-                            // Consulta SQL de UPDATE
-                            $sql_update = "UPDATE usuarios SET estado_cuenta=? WHERE id_usuario=?";
-                            // Obtener los datos del formulario sin foto
-                            $id = $_POST['id_usuario'];
-                            $estado = "aprobado";
-
-                            // Bindear los valores a la consulta SQL
-                            $stmt_update = $conexion->prepare($sql_update);
-                            $stmt_update->bind_param('si', $estado, $id);
-                            $stmt_update->execute();
-                            ?>
-                            <script>
-                                Swal.fire(
-                                '¡Excelente!',
-                                'El usuario ha sido habilitado.',
-                                'success'
-                                )
-                            </script>
-                            
-                            <?php
-                            
-                        } elseif (isset($_POST['denegar'])) {
-                            // Consulta SQL de UPDATE
-                            $sql_update = "UPDATE usuarios SET estado_cuenta=? WHERE id_usuario=?";
-                            // Obtener los datos del formulario sin foto
-                            $id = $_POST['id_usuario'];
-                            $estado = "denegado";
-
-                            // Bindear los valores a la consulta SQL
-                            $stmt_update = $conexion->prepare($sql_update);
-                            $stmt_update->bind_param('si', $estado, $id);
-                            $stmt_update->execute();
-                            ?>
-                            <script>
-                                Swal.fire(
-                                'Completado',
-                                'El usuario ha sido denegado.',
-                                'success'
-                                )
-                            </script>
-                            
-                            <?php
-                        }
-                    }
+                <?php 
+                    include "../modelo/conexion.php";
+                    $stmt = $conexion->prepare("SELECT usuarios.id_usuario, UPPER(usuarios.n_completo) AS n_completo_mayusculas
+                    FROM usuarios
+                    LEFT JOIN usuario_curso ON usuarios.id_usuario = usuario_curso.id_usuario
+                    WHERE usuario_curso.id_usuario IS NULL
+                    AND usuarios.id_rol != 2
+                    AND usuarios.estado_cuenta != 'denegado';
+                    ");
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    $stmt->close();
 
                 ?>
+
+                <form method="post" action="">
+                <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center align-middle">N°</th>
+                        <th scope="col" class="text-center align-middle">Nombre completo</th>
+                        <th scope="col" class="text-center align-middle">Asignar cursos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php 
+                    $j = 1;
+                    while ($datos = $result->fetch_object()){
+                        $id_usuario = $datos->id_usuario;
+                        ?>
+                    <tr>
+                        <th class="text-center align-middle"><?php echo $j;?></th>
+                        <td class="text-center align-middle"><?= $datos->n_completo_mayusculas?></td>
+                        <td class="text-center align-middle">
+                            <form action="" method="post">
+                                <input type="hidden" name="id_usuario" value="<?= $id_usuario; ?>">
+                                <button type="button" name="asignar" value="asignar" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#asignar<?= $id_usuario; ?>"><i class="fa-solid fa-square-plus"></i></i></button>
+                            </form>
+                        </td>
+                    </tr>
+                    <?php 
+                        $j++;
+                    ?>
+
+                    <!-- Asiganar cursos - Primera vez -->
+                    <div class="modal fade" id="asignar<?= $id_usuario; ?>" tabindex="-1" role="dialog" data-bs-backdrop="static">
+                        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+                            <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h5 class="modal-title">Asignar cursos:</h5>
+                                <button class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            
+                            <div class="modal-body" >
+                                <form action="../controlador/asignar_eliminar_curso.php" method="post">
+                                <input type="hidden" id="Id" name="id" value="<?= $id_usuario; ?>">
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label for="foto">Seleccione los cursos.<br> Sontenga la tecla control para seleccionar*</label>
+                                        <select class="form-select mt-2" size="6" name="opciones3[]" multiple>
+                                            <?php
+                                                for ($i = 6; $i <= 11; $i++) {
+                                                    echo "<option value='$i-a'>$i A</option>";
+                                                    echo "<option value='$i-b'>$i B</option>";
+                                                    echo "<option value='$i-c'>$i C</option>";
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="submit" name="agregar" class="btn btn-primary mt-2">Agregar</button>
+                                </form>
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <button class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button> 
+                                
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php
+                    }
+                    ?>
+                </tbody>
+                </table>
+                </form>
 
                 <script>
                     if(window.history.replaceState){
@@ -161,6 +287,9 @@
         
     </div>
 </div>
-
+<?php
+                //include "../controlador/asignar_eliminar_curso.php";
+                ?>
+                
     </body>
 </html>

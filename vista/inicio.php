@@ -54,7 +54,8 @@
             $sql = "SELECT * 
             FROM cursos
             INNER JOIN usuario_curso ON cursos.id_curso = usuario_curso.id_curso
-            WHERE usuario_curso.id_usuario = ? ORDER BY l_curso ASC";
+            WHERE usuario_curso.id_usuario = ? 
+            ORDER BY grado ASC, l_curso ASC";
             $stmt = $conexion->prepare($sql);
             $stmt->bind_param("i", $user_id); 
             $stmt->execute();

@@ -56,6 +56,27 @@
                                 <p class="card-text">Administre cuentas de usuarios, configure permisos y roles, y asegúrese de que los datos de los usuarios estén actualizados.</p>
                                 <a href="gest_usuarios.php" class="btn btn-primary">Ir</a>
                             </div>
+                            <!-- Gestión de Usuario - Modal -->
+                            <div class="modal fade" id="gestionar" tabindex="-1" role="dialog" data-bs-backdrop="static">
+                                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Gestión de Usuario</h5>
+                                        <button class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+                                    
+                                    <div class="modal-body" >
+                                        <button type="submit" name="agregar" class="btn btn-primary mt-2">Agregar</button>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button> 
+                                        
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -64,8 +85,30 @@
                             <img src="../Archivos_Media/cursos.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Gestión de Cursos</h5>
-                                <p class="card-text">Organice y gestione los cursos de la institución educativa, asigne profesores y estudiantes, y supervise el progreso del plan de estudios.</p>
-                                <a href="asignar_cursos.php" class="btn btn-primary">Ir</a>
+                                <p class="card-text">Organice y gestione los cursos de la institución educativa, asigne profesores y estudiantes.</p>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cursos">Ir</button>
+                            </div>
+                            <!-- Gestión de Cursos - Modal -->
+                            <div class="modal fade" id="cursos" tabindex="-1" role="dialog" data-bs-backdrop="static">
+                                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Gestión de Cursos</h5>
+                                        <button class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+                                    
+                                    <div class="modal-body text-center" >
+                                        <a href="asignar_cursos.php" class="btn btn-info">Asigne cursos a docentes.</a>
+                                        <a href="cards_cursos.php" class="btn btn-info">Registre estudiantes.</a>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button> 
+                                        
+                                    </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

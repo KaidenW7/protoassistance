@@ -2,11 +2,6 @@
     //Inicia la sesión para acceder a las variables de sesión
     session_start();
 
-    if (isset($_GET['alerta']) && $_GET['alerta'] === 'exito') {
-        // Muestra un mensaje de alerta
-        echo '<script>alert("La operación se realizó con éxito.");</script>';
-    }
-
     //Verifica si el usuario está autenticado
     if (!isset($_SESSION['id_usuario'])) {
         //Si no está autenticado, redirige al usuario al inicio de sesión
