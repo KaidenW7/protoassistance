@@ -29,7 +29,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["btniniciar"])) {
             if ($verificado) {
                 // Usuario autenticado correctamente, redirigir a la página de inicio
                 $_SESSION['id_usuario'] = $usuario_data['id_usuario'];
-                header("Location: ../vista/inicio.php");
+                $_SESSION['nombre'] = $usuario_data['n_completo'];
+                $_SESSION['estado'] = $usuario_data['estado_cuenta'];
+
+                if(isset($_SESSION['estado'])){
+                    if($_SESSION['estado'] == "aprobado"){
+                        if($usuario_data['id_rol']==1){
+                            header("Location: ../vista/inicio.php");
+                            $_SESSION['rol'] = $usuario_data['id_rol'];
+                        }else{
+                            header("Location: ../vista/admin.php");
+                            $_SESSION['rol'] = $usuario_data['id_rol'];
+                        }
+                    }else{
+                        if($_SESSION['estado'] == "pendiente"){
+                            header("Location: ../index.php");
+                        }else{
+                            header("Location: ../index.php");
+                        }
+                    }
+                }
+                
+                
                 exit(); // Asegúrate de terminar el script después de redirigir
             } else {
                 echo "La contraseña no coincide.";

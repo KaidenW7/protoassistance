@@ -3,11 +3,19 @@
     session_start();
 
     //Verifica si el usuario está autenticado
-    if (!isset($_SESSION['id_usuario'])) {
+    if (!isset($_SESSION['id_usuario']) and !isset($_SESSION['rol'])) {
         //Si no está autenticado, redirige al usuario al inicio de sesión
         header("Location: ../index.php");
         
+    }else{
+        if(isset($_SESSION['rol'])){
+            if($_SESSION['rol'] != 1){
+                header("Location: admin.php");
+            }
+        }
     }
+
+    
 
     //Obtén el ID del usuario desde la variable de sesión
     $user_id = $_SESSION['id_usuario'];

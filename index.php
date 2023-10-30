@@ -16,16 +16,12 @@
             <section class="containerMenu">
                 <h1>e-Assistance</h1>
                 <h4>PLANILLA DE ASISTENCIA WEB</h4>
-                    <?php 
-                        //include "modelo/conexion.php";
-                        //include "controlador/login.php";
-                    ?>  
                     <form id="log_in" method="POST" action="controlador/login.php">   
                         <input type="text" placeholder="USUARIO" maxlength="30" id="username" name="email">
                         <input type="password" placeholder="CONTRASEÑA" maxlength="20" id="password" name="password">
                         <input type="submit" id="log-in_button" name="btniniciar" value="INICIAR SESIÓN">
                         <h6 id=pw_link><a href="#" class="links">¿Olvidó su contraseña?</a></h6>
-                        <h6 id=pw_link><a href="registro.php" class="links">Registrarse</a></h6>
+                        <h6 id=pw_link><a href="vista/registro.php" class="links">Registrarse</a></h6>
                     </form>
                 <div id="box_row">
                     <div id="box_aligned">
