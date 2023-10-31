@@ -162,7 +162,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <button type="submit" name="agregar" class="btn btn-primary mt-2">Eliminar</button>
+                                    <button type="submit" name="agregar" class="btn btn-danger mt-2">Eliminar</button>
                                     </form>
 
                                 </div>
