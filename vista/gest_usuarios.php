@@ -17,12 +17,14 @@
 <!-- inicio del contenido principal -->
 <div class="page-content">
     <!-- primero se carga el navbar -->
-    <?php require('navbar.php'); ?>
-    <div class="row mx-1">
-        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
+    
+    <div class="row  mx-1">
+        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-2 sidebar bg-dark vh-100">
             <?php include "sidebar.php"; ?>
         </div>
-        <div class="col-sm-12 col-md-9 col-lg-9 col-xl-9">
+        <div class="col-sm-12 col-md-9 col-lg-9 col-xl-10">
+            <div class="row">
+            <?php require('navbar.php'); ?>
             <?php
                 $rol = 1;
                 $est_cuenta = "pendiente";
@@ -139,7 +141,7 @@
                         window.history.replaceState(null,null,window.location.href)
                     }
                 </script>
-                
+            </div>  
         </div>
         
     </div>

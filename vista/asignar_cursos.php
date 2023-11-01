@@ -16,16 +16,16 @@
 
 <!-- inicio del contenido principal -->
 <div class="page-content">
-    <!-- primero se carga el navbar -->
-    <?php require('navbar.php'); ?>
     <div class="row mx-1">
-        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
+        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-2 sidebar bg-dark vh-110">
             <?php include "sidebar.php"; ?>
         </div>
-        <div class="col-sm-12 col-md-9 col-lg-9 col-xl-9">
-            <?php
-                ?>
-                <div class="contenedor">
+        
+        <div class="col-sm-12 col-md-9 col-lg-9 col-xl-10">
+            <div class="row">
+                <?php require('navbar.php'); ?>
+            
+                <div class="container">
                     <h4 class="text-center">Asignar cursos a los docentes</h4> 
                     <?php 
                     include "../modelo/formato_fecha.php";
@@ -192,7 +192,7 @@
                     LEFT JOIN usuario_curso ON usuarios.id_usuario = usuario_curso.id_usuario
                     WHERE usuario_curso.id_usuario IS NULL
                     AND usuarios.id_rol != 2
-                    AND usuarios.estado_cuenta != 'denegado';
+                    AND usuarios.estado_cuenta = 'aprobado';
                     ");
                     $stmt->execute();
                     $result = $stmt->get_result();
@@ -283,8 +283,8 @@
                     }
                 </script>
                 
-        </div>
-        
+            </div>
+        </div>  
     </div>
 </div>
 <?php

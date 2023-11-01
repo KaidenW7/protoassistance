@@ -2,7 +2,7 @@
 <?php include "../modelo/head1.php"; ?>
 <body>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-  <a class="navbar-brand ms-3" href="inicio.php"><img src="../Archivos_Media/img_web1.png" alt="" srcset=""></a>
+  <a class="navbar-brand ms-3" href="inicio.php"><p class="agrandar">e-Assistance</p></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

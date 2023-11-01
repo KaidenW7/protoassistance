@@ -1,10 +1,3 @@
-<?php 
-    /*if (isset($_POST["btniniciar"])){
-        session_start();
-        $_SESSION["email"] = htmlentities($_POST["email"]);
-
-    }*/
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,9 +38,6 @@
 
     <!--...sweetalert...-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    
-    
 </head>
 <body>
     <div class="first">
@@ -58,6 +48,7 @@
             <section class="containerMenu">
                 <h1>e-Assistance</h1>
                 <h4>PLANILLA DE ASISTENCIA WEB</h4>
+
                     <form id="log_in" method="POST" action="controlador/login.php">   
                         <input type="text" placeholder="USUARIO" maxlength="30" id="username" name="email">
                         <input type="password" placeholder="CONTRASEÑA" maxlength="20" id="password" name="password">
@@ -65,6 +56,7 @@
                         <h6 id=pw_link><a href="#" class="links">¿Olvidó su contraseña?</a></h6>
                         <h6 id=pw_link><a href="vista/registro.php" class="links">Registrarse</a></h6>
                     </form>
+                    
                 <div id="box_row">
                     <div id="box_aligned">
                         <div id="fb"><i class="fa-brands fa-facebook-f"></i></div>

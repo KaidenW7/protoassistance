@@ -1,7 +1,7 @@
 
-<?php //require('../modelo/head1.php'); ?>
+<?php require('../modelo/head1.php'); ?>
 
-<nav class="sidebar bg-dark" >
+<nav class="position-fixed" >
     
     <div class="p-4">
         <div class="text-center">
@@ -14,21 +14,11 @@
             <li class="space">
                 <a class="eti_a" href="Prueba.php"><span class="fa fa-user mr-3"></span> About</a>
             </li>
-            <li class="space">
-                <a class="eti_a" href="#"><span class="fa fa-briefcase mr-3"></span> Works</a>
-            </li>
-            <li class="space">
-                <a class="eti_a" href="#"><span class="fa fa-sticky-note mr-3"></span> Blog</a>
-            </li>
-            <li class="space">
-                <a class="eti_a" href="#"><span class="fa fa-suitcase mr-3"></span> Gallery</a>
-            </li>
+            
             <li class="space">
                 <a class="eti_a" href="#"><span class="fa fa-cogs mr-3"></span> Services</a>
             </li>
-            <li class="space">
-                <a class="eti_a" href="#"><span class="fa fa-paper-plane mr-3"></span> Contacts</a>
-            </li>
+            
         </ul>
         <div class="footer">
             <!-- Aquí puedes agregar contenido adicional si es necesario -->

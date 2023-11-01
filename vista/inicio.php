@@ -34,18 +34,16 @@
 </head>
 <body>
 
-<!-- primero se carga el navbar -->
-<?php require('navbar.php'); ?>
-<!-- luego se carga el sidebar -->
-
 
 <!-- inicio del contenido principal -->
 <div class="page-content">
     <div class="row mx-1">
-        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-2">
+        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-2 sidebar bg-dark vh-100">
             <?php include "sidebar.php"; ?>
         </div>
         <div class="col-sm-12 col-md-9 col-lg-9 col-xl-10">
+            <div class="row">
+            <?php require('navbar.php'); ?>
             <div class="row">
             <?php 
             
@@ -88,6 +86,7 @@
             ?>
             </div>
         </div>
+    </div>
         
     </div>
 </div>

@@ -20,16 +20,18 @@
 <body>
 
 <!-- primero se carga el navbar -->
-<?php require('navbar.php'); ?>
+
 
 
 <!-- inicio del contenido principal -->
 <div class="page-content">
     <div class="row mx-1">
-        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
+        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-2 sidebar bg-dark vh-120">
             <?php include "sidebar.php"; ?>
         </div>
-        <div class="col-sm-12 col-md-9 col-lg-9 col-xl-9">
+        <div class="col-sm-12 col-md-9 col-lg-9 col-xl-10">
+        <div class="row">
+            <?php require('navbar.php'); ?>
             <?php
             if (isset($_GET['grado']) and isset($_GET['letra'])) {
                 $grado = $_GET['grado'];
@@ -78,6 +80,7 @@
                     $i = 1;
                     while ($datos = $result->fetch_object()){
                         ?>
+                        <input type="hidden" value="<?= $datos->id_est_11?>">
                     <tr>
                         <th class="text-center align-middle"><?php echo $i;?></th>
                         <td class="text-center align-middle"><img src="<?php echo $datos->foto; ?>" alt="Imagen" width="50" height="70"></td>
@@ -85,11 +88,11 @@
                         <td class="text-center align-middle"><?= $datos->apellido?></td>
                         <td class="text-center align-middle">
                             <label for="presente<?= $i ?>"><i class="fa-regular fa-circle-check"></i></label>
-                            <input type="radio" name="asistencia[<?= $i ?>]" value="1" id="presente<?= $i ?>" checked>
+                            <input type="radio" name="asistencia[<?= $datos->id_est_11 ?>]" value="1" id="presente<?= $i ?>" checked>
                             <label for="ausente<?= $i ?>"><i class="fa-regular fa-circle-xmark"></i></label>
-                            <input type="radio" name="asistencia[<?= $i ?>]" value="0" id="ausente<?= $i ?>">
+                            <input type="radio" name="asistencia[<?= $datos->id_est_11 ?>]" value="0" id="ausente<?= $i ?>">
                             <label for="incapacitado<?= $i ?>"><i class="fa-solid fa-user-slash"></i></label>
-                            <input type="radio" name="asistencia[<?= $i ?>]" value="2" id="incapacitado<?= $i ?>">
+                            <input type="radio" name="asistencia[<?= $datos->id_est_11 ?>]" value="2" id="incapacitado<?= $i ?>">
                         </td>
                     </tr>
                     <?php 
@@ -100,19 +103,37 @@
                 </table>
                 <button type="submit" class="btn btn-primary">Guardar Asistencia</button>
                 </form> <br>
+                
+                <div class="container text-center">
+                  Presente: <i class="fa-regular fa-circle-check"></i> |
+                  Ausente: <i class="fa-regular fa-circle-xmark"></i> |
+                  Incapacitado: <i class="fa-solid fa-user-slash"></i>
+                </div>
+
+
             <?php
             }
             if (isset($_POST['asistencia'])) {
                 $datos = $_POST['asistencia'];
-                // Convertir la cadena de caracteres en un array
-                //$datos = explode(",", $datos);
-
-                foreach ($datos as $id => $valor) {
+                
+                // Crear una consulta preparada
+                $sql = "INSERT INTO asistencia (id_estudiante, estado, hora, fecha) VALUES (?, ?, ?, ?)";
+                $stmt = $conexion->prepare($sql);
+                
+                if ($stmt) {
                     $fecha = date("Y-m-d");
                     $hora = date("H:i:s");
             
-                    $sql = "INSERT INTO asistencia (id_estudiante, estado, hora, fecha) VALUES ($id, '$valor', '$fecha', '$hora');";
-                    $conexion->query($sql);
+                    // Vincular los parámetros
+                    $stmt->bind_param("iiss", $id, $valor, $hora, $fecha);
+            
+                    // Recorrer el arreglo de datos y ejecutar la consulta para cada estudiante
+                    foreach ($datos as $id => $valor) {
+                        $stmt->execute();
+                    }
+            
+                    // Cerrar la consulta preparada
+                    $stmt->close();
                 }
                 ?>
                 <script>
@@ -138,14 +159,10 @@
                 </script>
             <?php
             }
-               include "../modelo/indicacion.php";
-            ?>
-            <?php
-               include "../controlador/editar_datos_estudiantes.php";
             ?>
                 
         </div>
-        
+      </div>
     </div>
 </div>
 
