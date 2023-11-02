@@ -21,6 +21,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["btniniciar"])) {
         if ($result->num_rows === 1) {
             // Obtener los datos del usuario
             $usuario_data = $result->fetch_assoc();
+            if($usuario_data['id_rol']==1){
+                // Realizar la consulta SQL de forma segura para evitar inyecciones SQL
+                $stmt = $conexion->prepare("SELECT usuarios.*, usuario_asignatura.id_asignatura AS id FROM usuarios 
+                INNER JOIN usuario_asignatura ON usuarios.id_usuario = usuario_asignatura.id_usuario
+                WHERE usuarios.email = ?");
+                $stmt->bind_param("s", $email);
+                $stmt->execute();
+
+            }
             $hash_clave_bd = $usuario_data['clave'];
 
             // Verificar que el hash de la contraseña coincida con la contraseña ingresada por el usuario

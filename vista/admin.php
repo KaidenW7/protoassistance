@@ -121,7 +121,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Generación de Informes</h5>
                                 <p class="card-text">Acceda a datos clave y genere informes detallados para evaluar la asistencia, el rendimiento académico y otros indicadores importantes.</p>
-                                <a href="#" class="btn btn-primary">Ir</a>
+                                <a href="generar_informes.php" class="btn btn-primary">Ir</a>
                             </div>
                         </div>
                     </div>

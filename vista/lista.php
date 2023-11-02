@@ -14,6 +14,20 @@
         
     }
 
+    $asignatura = $_SESSION['asignatura'];
+
+    include "../modelo/conexion.php";
+
+    $stmt = $conexion->prepare("SELECT * FROM asignaturas 
+    WHERE id_asignatura = ?");
+    $stmt->bind_param("i", $asignatura);
+    $stmt->execute();
+
+    // Obtener el resultado de la consulta
+    $result = $stmt->get_result();
+    $fila = $result->fetch_assoc();
+    $valor = $fila['n_asignatura'];
+
 ?>
 <!DOCTYPE html>
 <?php include "../modelo/head1.php"; ?>
@@ -43,13 +57,14 @@
                 ?>
                 <div class="contenedor">
                     <h4 class="text-center">Asistencia <?php echo $curso; ?></h4> 
+                    <h4 class="text-center"><?php echo $valor; ?></h4>
                     <?php 
                     include "../modelo/formato_fecha.php";
                     echo fecha();
                     ?>
                 </div>
                 <?php 
-                    include "../modelo/conexion.php";
+                    
                     $stmt = $conexion->prepare("SELECT id_est_11, foto, nombre, apellido FROM estudiantes_11 WHERE curso=? ORDER BY apellido ASC");
                     $stmt->bind_param("s", $curso);
                     $stmt->execute();
@@ -117,7 +132,7 @@
                 $datos = $_POST['asistencia'];
                 
                 // Crear una consulta preparada
-                $sql = "INSERT INTO asistencia (id_estudiante, estado, hora, fecha) VALUES (?, ?, ?, ?)";
+                $sql = "INSERT INTO asistencia (id_estudiante, estado, hora, fecha, id_asignatura) VALUES (?, ?, ?, ?, ?)";
                 $stmt = $conexion->prepare($sql);
                 
                 if ($stmt) {
@@ -125,7 +140,7 @@
                     $hora = date("H:i:s");
             
                     // Vincular los parámetros
-                    $stmt->bind_param("iiss", $id, $valor, $hora, $fecha);
+                    $stmt->bind_param("iissi", $id, $valor, $hora, $fecha, $asignatura);
             
                     // Recorrer el arreglo de datos y ejecutar la consulta para cada estudiante
                     foreach ($datos as $id => $valor) {
