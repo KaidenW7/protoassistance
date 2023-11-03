@@ -13,10 +13,6 @@
 <!DOCTYPE html>
 <?php include "../modelo/head1.php"; ?>
 <body>
-
-
-
-
 <!-- inicio del contenido principal -->
 <div class="page-content">
     <div class="row mx-1">
@@ -27,8 +23,8 @@
             <div class="row">
                 <!-- primero se carga el navbar -->
                 <?php require('navbar.php'); ?>
-            <?php
-            if (isset($_GET['grado']) and isset($_GET['letra'])) {
+                <?php
+                if (isset($_GET['grado']) and isset($_GET['letra'])) {
                 $grado = $_GET['grado'];
                 $letra = $_GET['letra'];
                 $l_mayus = strtoupper($letra);
@@ -41,12 +37,19 @@
 
 
                 ?>
-                <div class="contenedor">
-                    <h4 class="text-center">Generar informes de asistencia | Grado <?php echo $curso; ?></h4> 
+                <div class="container">
+                    <div class="container">
+                        <div class="text-center">
+                            <h4 style="display: inline-block; margin-right: 25px;">Generar informes de asistencia | Grado <?php echo $curso; ?></h4>
+                        </div>
+                    </div>
                     <?php 
                     include "../modelo/formato_fecha.php";
                     echo fecha();
                     ?>
+                    <div class="container text-center mb-3 mt-3">
+                        <button type="button" class="btn btn-info">Generar informe general. <i class="fa-solid fa-chart-simple fa-xl"></i></i></button>
+                    </div>
                 </div>
                 <?php 
                     include "../modelo/conexion.php";
@@ -78,106 +81,21 @@
                         <td class="text-center align-middle"><img src="<?php echo $datos->foto; ?>" alt="Imagen" width="50" height="70"></td>
                         <td class="text-center align-middle"><?= $datos->nombre." ".$datos->apellido?></td>
                         <td class="text-center align-middle">
-                            <button type="button" class="btn btn-info"><i class="fa-solid fa-file-contract fa-2xl"></i></button>
+                                <a href="../modelo/formato_informe.php?id_estudiante=<?= $datos->id_est_11 ?>" class="btn btn-info">
+                                    <i class="fa-solid fa-file-pdf fa-2xl"></i>
+                                </a>                            
                         </td>
                     </tr>
                     <?php 
                         $i++;
                     }
+                }
                     ?>
                 </tbody>
                 </table>
-                    
-
-                    <!-- Agregar curso -->
-                    <div class="modal modal-xl fade" id="agregar" tabindex="-1" role="dialog" data-bs-backdrop="static">
-                            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
-                                <div class="modal-content">
-
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Añadir cursos:</h5>
-                                    <button class="btn-close" data-bs-dismiss="modal"></button>
-                                </div>
-                                
-                                <div class="modal-body" >
-                                <div class="container">
-                                    <form class="row g-3 mt-3" method="post" action="../controlador/registro_estudiantes.php" enctype ="multipart/form-data">
-                                    
-                                        <input type="hidden" id="ruta" name="ruta1" value="<?= $enlace_lista?>">
-                                        <input type="hidden" id="curso" name="curso" value="<?= $curso?>">
-
-                                        <div class="col-md-6">
-                                            <label for="inputFoto" class="form-label">Insertar Foto</label>
-                                            <input type="file" class="form-control" id="inputFoto" name="foto">
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <label for="inputNombre" class="form-label">Nombres</label>
-                                            <input type="text" class="form-control" id="inputNombre" name="nombre">
-                                        </div>
-
-                                        <div class="col-12">
-                                            <label for="inputApellidos" class="form-label">Apellidos</label>
-                                            <input type="text" class="form-control" id="inputApellidos" name="apellido">
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <label for="inputTDoc" class="form-label">Tipo de documento</label>
-                                            <select id="inputTDoc" class="form-select" name="td">
-                                                <option selected> </option>
-                                                <option>TI</option>
-                                                <option>CC</option>
-                                                <option>PPT</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="col-6">
-                                            <label for="inputNumero" class="form-label">Número de documento</label>
-                                            <input type="number" class="form-control" id="inputNumero" name="n_documento">
-                                        </div>
-
-                                        <div class="col-md-2">
-                                        <label for="inputSexo" class="form-label">Sexo</label>
-                                            <select class="form-select mt-2" name="sexo" id="inputSexo">
-                                                    <option value=''>Seleccione sexo</option>
-                                                    <option value='f'>Femenino</option>
-                                                    <option value='m'>Masculino</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <label for="inputEmail" class="form-label">Correo Electrónico</label>
-                                            <input type="text" class="form-control" id="inputEmail" name="email">
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <label for="inputFnacimiento" class="form-label">Fecha de nacimiento</label>
-                                            <input type="date" class="form-control" id="inputFnacimiento" name="f_nacimiento">
-                                        </div>
-
-                                        <div class="col-12">
-                                            <button type="submit" class="btn btn-primary">Registrar</button>
-                                        </div>
-                                    </form>
-
-                                </div>
-
-                                <div class="modal-footer">
-                                    <button class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button> 
-                                    
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-            <?php
-            }
-            ?>
-                
+            </div>
         </div>
-        
     </div>
-    </div>
-</div>
 
-    </body>
+</body>
 </html>

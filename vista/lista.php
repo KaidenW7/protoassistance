@@ -14,7 +14,8 @@
         
     }
 
-    $asignatura = $_SESSION['asignatura'];
+    //$asignatura = $_SESSION['asignatura'];
+    $asignatura = 5;
 
     include "../modelo/conexion.php";
 

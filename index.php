@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Es e-Assistance, una solución eficiente y moderna para la gestión de asistencia de tu institución educativa. Nuestra plataforma web te brinda una planilla de asistencia fácil de usar que simplifica el seguimiento y registro de la asistencia de tus estudiantes.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>e-Assistance</title>
     <!--...Favicon Image...-->

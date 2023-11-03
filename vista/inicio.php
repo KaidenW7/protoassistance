@@ -71,7 +71,7 @@
                     // Ahora puedes usar $grado y $l_curso para llenar la tarjeta
                     // Coloca aquí la estructura de la tarjeta usando los datos obtenidos
                     echo '
-                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
                         <div class="card my-3" style="width: 12rem;">
                             <img src="../Archivos_Media/'.$grado_curso.''.$letra.'.png" class="card-img-top" alt="...">
                             <div class="card-body">
