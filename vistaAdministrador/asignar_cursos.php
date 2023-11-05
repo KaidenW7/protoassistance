@@ -18,12 +18,12 @@
 <div class="page-content">
     <div class="row mx-1">
         <div class="col-sm-12 col-md-3 col-lg-3 col-xl-2 sidebar bg-dark vh-110">
-            <?php include "sidebar.php"; ?>
+            <?php include "../sidebar_Navbar/sidebar.php"; ?>
         </div>
         
         <div class="col-sm-12 col-md-9 col-lg-9 col-xl-10">
             <div class="row">
-                <?php require('navbar.php'); ?>
+                <?php require('../sidebar_Navbar/navbar.php'); ?>
             
                 <div class="container">
                     <h4 class="text-center">Asignar cursos a los docentes</h4> 

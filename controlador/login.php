@@ -44,10 +44,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["btniniciar"])) {
                 if(isset($_SESSION['estado'])){
                     if($_SESSION['estado'] == "aprobado"){
                         if($usuario_data['id_rol']==1){
-                            header("Location: ../vista/inicio.php");
+                            header("Location: ../vistaUsuario/inicio.php");
                             $_SESSION['rol'] = $usuario_data['id_rol'];
                         }else{
-                            header("Location: ../vista/admin.php");
+                            header("Location: ../vistaAdministrador/admin.php");
                             $_SESSION['rol'] = $usuario_data['id_rol'];
                         }
                     }else{

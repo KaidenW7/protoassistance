@@ -1,5 +1,15 @@
 
-<?php require('../modelo/head1.php'); ?>
+<?php  
+
+    if(isset($_SESSION['rol'])){
+        if($_SESSION['rol'] != 2){
+            $ruta = "../vistaUsuario/inicio.php";
+        }else{
+            $ruta = "../vistaAdministrador/admin.php";
+        }
+    }
+require('../modelo/head1.php');
+?>
 
 <nav class="position-fixed" >
     
@@ -9,7 +19,7 @@
         </div>
         <ul class="space_ul">
             <li class="space">
-                <a class="eti_a" href="inicio.php"><span class="fa fa-home mr-3"></span> Home</a>
+                <a class="eti_a" href="<?php echo $ruta; ?>"><span class="fa fa-home mr-3"></span> Home</a>
             </li>
             <li class="space">
                 <a class="eti_a" href="Prueba.php"><span class="fa fa-user mr-3"></span> About</a>

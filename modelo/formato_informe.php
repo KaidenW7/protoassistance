@@ -1,6 +1,6 @@
 <?php
 
-use Dompdf\Dompdf;
+//use Dompdf\Dompdf;
 include "conexion.php";
 if (isset($_GET['id_estudiante'])) {
     $estudiante_id = $_GET['id_estudiante'];
@@ -45,30 +45,27 @@ if (isset($_GET['id_estudiante'])) {
 <!DOCTYPE html>
 <?php include "head1.php";?>
 <body>
-    <div class="container">
-        <table class="table  mb-5">
-            <thead>
-                <tr>
-                    <th scope="col" class="text-center align-middle"><img src="../Archivos_Media/escudo.png" alt="" width="200" height="146"></th>
-                    <th scope="col" class="text-center align-middle">INSTITUCIÓN EDUCATIVA DISTRITAL JORGE ISAACS <br>
-                        Aprobado según Resolución No 04343 del 13 de Agosto de 2015<br>
-                        Actualización Jornada Única 09014 del 13 de Diciembre de 2016<br>
-                        NIT: 802.014.036 – 5 DANE: 108001002916<br>
-                        GUÍA DIDÁCTICA
-                    </th>
-                    <th scope="col" class="text-center align-middle"><img src="https://<?php echo $_SERVER['HTTP_HOST']?>protoassistance/Archivos_Media/iedlogo.png" alt="" width="200" height="146"></th>
-                    </th>
-                </tr>
-            </thead>
-        </table>
-        <p class="text-center">
-        Asistencia del estudiante <?php echo $nombre."".$apellido;?> del curso <?php echo $curso;?> en la asignatura de $n_clase desde el $fecha_inicial hasta el $_fecha_final.
-        </p>
-        <div class="mt-5">
-            Nombre del docente: $n_docente<br>
-            Intensidad de horas por semana: $n_horas
+<div class="container">
+        <div class="row">
+            <div class="col-2">
+                <img src="../Archivos_Media/escudo.png" alt="" class="img-fluid" width="200" height="146">
+            </div>
+            <div class="col-6">
+                <h5 class="text-center">INSTITUCIÓN EDUCATIVA DISTRITAL JORGE ISAACS</h5>
+                <h5 class="text-center">Aprobado según Resolución No 04343 del 13 de Agosto de 2015</h5>
+                <h5 class="text-center">Actualización Jornada Única 09014 del 13 de Diciembre de 2016</h5>
+                <h5 class="text-center">NIT: 802.014.036 – 5 DANE: 108001002916</h5>
+                <h5 class="text-center">GUÍA DIDÁCTICA</h2>
+            </div>
+            <div class="col-2">
+                <img src="../Archivos_Media/iedlogo.PNG" alt="" class="img-fluid" width="200" height="146">
+            </div>
         </div>
-
+    </div>
+        <p class="text-center">
+        Asistencia del estudiante <?php echo $nombre." ".$apellido;?> del curso <?php echo $curso;?>.
+        </p>
+    </div>
         <div>
             <h3 class="text-center">Porcentajes del los estados de asistencia.</h3>
             <canvas id="grafica" width="150" height="40"></canvas>
@@ -164,29 +161,29 @@ if (isset($_GET['id_estudiante'])) {
 
             </script>
         </div>
-    </div>
+    
 </body>
 </html>
 <?php
 }
 $informe = ob_get_clean();
-//echo $informe;
+echo $informe;
 
 // include autoloader
-require_once 'C:\xampp\htdocs\protoassistance\dompdf\autoload.inc.php';
+//require_once 'C:\xampp\htdocs\protoassistance\dompdf\autoload.inc.php';
 
 // instantiate and use the dompdf class
 //use Dompdf\Dompdf;
 
-$dompdf = new Dompdf();
-$dompdf->loadHtml($informe);
+//$dompdf = new Dompdf();
+//$dompdf->loadHtml($informe);
 
 // (Optional) Setup the paper size and orientation
-$dompdf->setPaper('letter');
+//$dompdf->setPaper('letter');
 
 // Render the HTML as PDF
-$dompdf->render();
+//$dompdf->render();
 
 
 // Output the generated PDF to Browser
-$dompdf->stream("informe_.pdf", array("Attachment" => false));
+//$dompdf->stream("informe_.pdf", array("Attachment" => false));

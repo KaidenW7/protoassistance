@@ -27,7 +27,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>e-Assistance/Administrador</title>
+    <title>e-Assistance | Administrador</title>
 
     <!--...Favicon Image...-->
     <link rel="shortcut icon" href="../Archivos_Media/img_web1.png" type="imagen/png">
@@ -42,14 +42,15 @@
 <div class="page-content">
     <div class="row mx-1">
         <div class="col-sm-12 col-md-3 col-lg-3 col-xl-2 sidebar bg-dark vh-100">
-            <?php include "sidebar.php"; ?>
+            <?php include "../sidebar_Navbar/sidebar.php"; ?>
         </div>
         <div class="col-sm-12 col-md-9 col-lg-9 col-xl-10">
             <div class="row">
-            <?php require('navbar.php'); ?>
+            <?php require('../sidebar_Navbar/navbar.php'); ?>
             <div class="title center">Bienvenido <?php echo $n_mayus; ?></div>
             <div class="row">
                 
+                    <!-- Card de Gestión de Usuario -->
                     <div class="col-lg-4">
                         <div class="card my-3" style="width: 18rem;">
                             <img src="../Archivos_Media/usuario.png" class="card-img-top" alt="...">
@@ -82,6 +83,7 @@
                         </div>
                     </div>
 
+                    <!-- Card de Gestión de Cursos -->
                     <div class="col-lg-4">
                         <div class="card my-3" style="width: 18rem;">
                             <img src="../Archivos_Media/cursos.png" class="card-img-top" alt="...">
@@ -101,8 +103,9 @@
                                     </div>
                                     
                                     <div class="modal-body text-center" >
-                                        <a href="asignar_cursos.php" class="btn btn-info">Asigne cursos a docentes.</a>
-                                        <a href="cards_cursos.php" class="btn btn-info">Registre estudiantes.</a>
+                                        <a href="asignar_cursos.php" class="btn btn-info mb-2">Asigne cursos a docentes.</a>
+                                        <a href="cards_cursos.php" class="btn btn-info mb-2">Registre estudiantes.</a>
+                                        <a href="edit_est_admin.php" class="btn btn-info mb-2">Editar datos de estudiantes.</a>
                                     </div>
 
                                     <div class="modal-footer">
@@ -115,6 +118,7 @@
                         </div>
                     </div>
 
+                    <!-- Card de Gestión de Cursos -->
                     <div class="col-lg-4">
                         <div class="card my-3" style="width: 18rem;">
                             <img src="../Archivos_Media/informes.png" class="card-img-top" alt="...">

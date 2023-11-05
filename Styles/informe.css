@@ -1,0 +1,33 @@
+/* Márgenes más pequeños para toda la página */
+@page {
+    size: 8.5in 11in;
+    margin: 0.5in; /* Márgenes de 0.5 pulgadas en todos los lados */
+ }
+ 
+ /* Márgenes más pequeños para un elemento específico */
+ body {
+    margin: 0.5in; /* Márgenes de 0.5 pulgadas en todos los lados del cuerpo (contenido principal) */
+ }
+ 
+ /* Márgenes más pequeños para elementos individuales */
+ .container {
+    margin: 0.25in; /* Márgenes de 0.25 pulgadas para un elemento con clase "container" */
+ }
+ 
+ /* Ajustar márgenes en el eje vertical */
+ .container {
+    margin-top: 0.25in; /* Márgenes superiores de 0.25 pulgadas */
+    margin-bottom: 0.25in; /* Márgenes inferiores de 0.25 pulgadas */
+ }
+ body {
+    margin: 0.5in; /* Márgenes de 0.5 pulgadas en todos los lados */
+}
+
+table {
+    width: 100%;
+    max-width: 800px; /* Establece el ancho máximo de la tabla */
+}
+
+td {
+    vertical-align: middle;
+}
