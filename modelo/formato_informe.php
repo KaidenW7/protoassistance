@@ -48,7 +48,7 @@ if (isset($_GET['id_estudiante'])) {
 <div class="container">
         <div class="row">
             <div class="col-2">
-                <img src="../Archivos_Media/escudo.png" alt="" class="img-fluid" width="200" height="146">
+                <img src="../Archivos_Media/imagenesInforme/escudo.png" alt="" class="img-fluid" width="200" height="146">
             </div>
             <div class="col-6">
                 <h5 class="text-center">INSTITUCIÓN EDUCATIVA DISTRITAL JORGE ISAACS</h5>
@@ -58,7 +58,7 @@ if (isset($_GET['id_estudiante'])) {
                 <h5 class="text-center">GUÍA DIDÁCTICA</h2>
             </div>
             <div class="col-2">
-                <img src="../Archivos_Media/iedlogo.PNG" alt="" class="img-fluid" width="200" height="146">
+                <img src="../Archivos_Media/imagenesInforme/iedlogo.PNG" alt="" class="img-fluid" width="200" height="146">
             </div>
         </div>
     </div>

@@ -53,7 +53,7 @@
                     <!-- Card de Gestión de Usuario -->
                     <div class="col-lg-4">
                         <div class="card my-3" style="width: 18rem;">
-                            <img src="../Archivos_Media/usuario.png" class="card-img-top" alt="...">
+                            <img src="../Archivos_Media/imagenesAdministrador/usuario.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Gestión de Usuario</h5>
                                 <p class="card-text">Administre cuentas de usuarios, configure permisos y roles, y asegúrese de que los datos de los usuarios estén actualizados.</p>
@@ -86,7 +86,7 @@
                     <!-- Card de Gestión de Cursos -->
                     <div class="col-lg-4">
                         <div class="card my-3" style="width: 18rem;">
-                            <img src="../Archivos_Media/cursos.png" class="card-img-top" alt="...">
+                            <img src="../Archivos_Media/imagenesAdministrador/cursos.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Gestión de Cursos</h5>
                                 <p class="card-text">Organice y gestione los cursos de la institución educativa, asigne profesores y estudiantes.</p>
@@ -121,7 +121,7 @@
                     <!-- Card de Gestión de Cursos -->
                     <div class="col-lg-4">
                         <div class="card my-3" style="width: 18rem;">
-                            <img src="../Archivos_Media/informes.png" class="card-img-top" alt="...">
+                            <img src="../Archivos_Media/imagenesAdministrador/informes.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Generación de Informes</h5>
                                 <p class="card-text">Acceda a datos clave y genere informes detallados para evaluar la asistencia, el rendimiento académico y otros indicadores importantes.</p>

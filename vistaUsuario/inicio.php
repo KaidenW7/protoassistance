@@ -40,11 +40,11 @@
 <div class="page-content">
     <div class="row mx-1">
         <div class="col-sm-12 col-md-3 col-lg-3 col-xl-2 sidebar bg-dark vh-100">
-            <?php include "sidebar.php"; ?>
+            <?php include "../sidebar_Navbar/sidebar.php"; ?>
         </div>
         <div class="col-sm-12 col-md-9 col-lg-9 col-xl-10">
             <div class="row">
-            <?php require('navbar.php'); ?>
+            <?php require('../sidebar_Navbar/navbar.php'); ?>
             <div class="row">
             <?php 
             
@@ -74,7 +74,7 @@
                     echo '
                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
                         <div class="card my-3" style="width: 12rem;">
-                            <img src="../Archivos_Media/'.$grado_curso.''.$letra.'.png" class="card-img-top" alt="...">
+                            <img src="../Archivos_Media/imagenesCursos/'.$grado_curso.''.$letra.'.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Grado '.$grado_curso.'°'.$l_mayus.'</h5>
                                 <p class="card-text">Lista de asistencia de los estudiantes de grado '.$grado_curso.'°'.$l_mayus.'.</p>

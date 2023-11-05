@@ -21,11 +21,11 @@
 <div class="page-content">
     <div class="row mx-1">
         <div class="col-sm-12 col-md-3 col-lg-3 col-xl-2 sidebar bg-dark vh-120">
-            <?php include "sidebar.php"; ?>
+            <?php include "../sidebar_Navbar/sidebar.php"; ?>
         </div>
         <div class="col-sm-12 col-md-9 col-lg-9 col-xl-10">
             <div class="row">
-            <?php require('navbar.php'); ?>
+            <?php require('../sidebar_Navbar/navbar.php'); ?>
             <?php
             if (isset($_GET['grado']) and isset($_GET['letra'])) {
                 $grado = $_GET['grado'];
